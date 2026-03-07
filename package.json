@@ -1,0 +1,24 @@
+{
+  "name": "sham",
+  "version": "1.0.0",
+  "description": "This project is awesome",
+  "keywords": [
+    "Sham",
+    "tech"
+  ],
+  "homepage": "https://github.com/Ahtsham-Saddique/Nodejs-learning#readme",
+  "bugs": {
+    "url": "https://github.com/Ahtsham-Saddique/Nodejs-learning/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahtsham-Saddique/Nodejs-learning.git"
+  },
+  "license": "ISC",
+  "author": "sham",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
