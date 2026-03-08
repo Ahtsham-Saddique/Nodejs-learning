@@ -1,1 +1,6 @@
-console.log("Testing the Node js");
+const Ahtsham= require("./second.js");
+console.log("Testing the Nodemon ");
+
+console.log(Ahtsham.name
+
+);
