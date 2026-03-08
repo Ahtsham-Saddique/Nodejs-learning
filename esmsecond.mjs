@@ -1,2 +1,2 @@
-import { Name }   from "./Esm.mjs"; 
-console.log(Name);
+import { Name as name}   from "./Esm.mjs"; 
+console.log(ame);
