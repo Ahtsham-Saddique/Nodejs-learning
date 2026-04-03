@@ -68,4 +68,66 @@ async function cpFile()
         console.log("Error :", err);
     }
 }
-cpFile();
+// cpFile();
+
+async function dlt()
+{
+    try 
+    {
+         fs.unlink("b.txt");
+         console.log("Sucessfully deleted");
+    }
+    catch(err)
+    {
+        console.log("Error in deletion:", err);
+    }
+}
+// dlt();
+
+async function createFold()
+{
+    try 
+    {
+         fs.mkdir("./folder");
+         console.log("Sucessfully created");
+    }
+    catch(err)
+    {
+        console.log("Error in creation:", err);
+    }
+}
+// createFold();
+
+async function createFil()
+{
+    try 
+    {
+         fs.rm("b.txt");
+         console.log("Sucessfully deleted");
+    }
+    catch(err)
+    {
+        console.log("Error in creation:", err);
+    }
+}
+// createFil();
+
+
+
+async function readFolder() {
+    try {
+        const files = await fs.readdir("folder");
+        console.log('Files in folder:', files);
+    } catch (err) {
+        console.error('Error reading folder:', err);
+    }
+}
+
+async function main() {
+    
+    await readFolder();
+}
+
+main();
+
+
