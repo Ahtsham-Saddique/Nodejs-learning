@@ -1,36 +1,36 @@
-import express from 'express'
+import express from "express";
 
 const app = express();
 
-app.use(function(req,res,next)
-{
+/* Global middleware 1 */
+app.use((req, res, next) => {
   console.log("Request received");
- next();
-})
-app.use(function(req,res,next)
-{
+  next();
+});
+
+/* Global middleware 2 */
+app.use((req, res, next) => {
   console.log("Request received confirmation");
- next();
-})
-
-app.get('/', (req, res,next) => {
-  res.send('Hello World')
   next();
-})
+});
 
-app.get("/sham",(req,res,next)=>
-{
-  res.send("THis is the sham tech '/n' howw e can help you please");
-  
-  next();
-})
-;
+/* Route: Home */
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
-app.use(function(req,res,next)
-{
-  console.log("Response received!!!!!!!!!!");
- 
-})
+/* Route: Sham */
+app.get("/sham", (req, res) => {
+  res.send("This is the sham tech how we can help you");
+});
+
+/* Final middleware (runs only if no route matched) */
+app.use((req, res) => {
+  console.log("Response cycle completed / route not found");
+  res.status(404).send("Route not found");
+});
+
+/* Start server */
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000')
-})
+  console.log("Server is running on http://localhost:3000");
+});
