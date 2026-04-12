@@ -1,21 +1,26 @@
 import express from "express";
+const app =express();
 
-const app = express();
-
-/* Global middleware 1 */
-app.use((req, res, next) => {
+app.use((req,res,next)=>{
   console.log("Request received");
+  console.log(req.body);
   next();
 });
+
 
 /* Global middleware 2 */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
   console.log("Request received confirmation");
+  console.log(req.body);
   next();
 });
 
-/* Route: Home */
+/* ;Route: Home */
 app.get("/", (req, res) => {
+  
+  console.log(req.body);
   res.send("Hello World");
 });
 
@@ -23,12 +28,18 @@ app.get("/", (req, res) => {
 app.get("/sham", (req, res) => {
   res.send("This is the sham tech how we can help you");
 });
+app.post("/data", (req, res) => {
+  console.log(req.body);
+  res.send("Data received");
+});
 
 /* Final middleware (runs only if no route matched) */
-app.use((req, res) => {
-  console.log("Response cycle completed / route not found");
-  res.status(404).send("Route not found");
-});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
 
 /* Start server */
 app.listen(3000, () => {
