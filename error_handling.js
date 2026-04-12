@@ -19,6 +19,7 @@ app.get("/contact", (req, res) => {
 
 app.get("/help", (req, res) => {
 //   res.send("Help page of Sham Tech");
+return next(new Error("Not Implemented"));
 
 });
 
