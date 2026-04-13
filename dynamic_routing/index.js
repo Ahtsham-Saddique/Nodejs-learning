@@ -21,10 +21,12 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine', 'ejs'); 
 
 
-app.get("/",function(req,res,next)
+app.get("/author/:username",function(req,res,next)
 {
     // res.send("Its working bro your doing a great job ,stay consistent");
-    res.render("home");
+  let a= req.params.username;
+    res.send(`${a}, is connected with you`);
+    // res.send(req.params.username);
 });
 app.listen(3000,()=>{
     console.log("Server is running on the link http://localhost:3000");
